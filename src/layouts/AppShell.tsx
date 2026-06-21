@@ -174,8 +174,9 @@ export function AppShell() {
       <div className="app-atmosphere pointer-events-none fixed inset-0 -z-10" aria-hidden />
       <div className="app-grain pointer-events-none fixed inset-0 -z-10" aria-hidden />
 
-      <aside className="sticky top-0 hidden h-screen w-64 shrink-0 flex-col bg-gradient-to-b from-steel-800 to-steel-900 lg:flex">
-        <Sidebar />
+      <aside className="sticky top-0 hidden h-screen w-64 shrink-0 flex-col overflow-hidden bg-gradient-to-b from-steel-800 to-steel-900 lg:flex">
+        <div className="rail-glow pointer-events-none absolute inset-x-0 top-0 h-48" aria-hidden />
+        <div className="relative flex h-full flex-col"><Sidebar /></div>
       </aside>
 
       {navOpen && (

@@ -19,19 +19,21 @@ export function PageHeader({
   className?: string
 }) {
   return (
-    <div className={cn('relative', className)}>
+    <div className={cn('relative -mx-4 -mt-7 mb-1 overflow-hidden px-4 pb-5 pt-7 lg:-mx-8 lg:px-8', className)}>
+      <div className="page-hero-wash pointer-events-none absolute inset-0 -z-10" aria-hidden />
       <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
         <div className="max-w-2xl">
           <div className="flex items-center gap-2">
-            <span className="h-3.5 w-[2.5px] rounded-full bg-azure" aria-hidden />
+            <span className="h-3.5 w-[3px] rounded-full bg-gradient-to-b from-azure to-azure-deep" aria-hidden />
             <p className="font-mono text-[10.5px] font-medium uppercase tracking-[0.16em] text-ink-subtle">{eyebrow}</p>
           </div>
-          <h1 className="mt-2 font-display text-[26px] font-extrabold leading-tight tracking-tight-bank text-ink md:text-[30px]">{title}</h1>
+          <h1 className="mt-2 font-display text-[27px] font-extrabold leading-[1.08] tracking-tight-bank text-ink md:text-[31px]">{title}</h1>
           {description && <p className="mt-2 text-[14px] leading-relaxed text-ink-muted">{description}</p>}
         </div>
         {actions && <div className="flex shrink-0 items-center gap-2">{actions}</div>}
       </div>
       {meta && <div className="mt-5 flex flex-wrap items-center gap-x-6 gap-y-2">{meta}</div>}
+      <div className="divider-hairline absolute inset-x-0 bottom-0" aria-hidden />
     </div>
   )
 }

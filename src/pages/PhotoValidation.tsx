@@ -247,7 +247,7 @@ function DetectionBox({ d, index }: { d: VisionDetection; index: number }) {
   return (
     <div
       className={cn('absolute rounded-md border-2 animate-box-in', SEV[d.severity].box)}
-      style={{ left: `${d.x}%`, top: `${d.y}%`, width: `${d.w}%`, height: `${d.h}%`, animationDelay: `${index * 0.12}s`, boxShadow: '0 0 0 9999px rgba(0,0,0,0)' }}
+      style={{ left: `${d.x}%`, top: `${d.y}%`, width: `${d.w}%`, height: `${d.h}%`, animationDelay: `${index * 0.12}s` }}
     >
       <span className={cn('absolute -top-[18px] left-0 inline-flex items-center gap-1 whitespace-nowrap rounded px-1.5 py-0.5 font-mono text-[8.5px] font-semibold uppercase tracking-[0.04em]', SEV[d.severity].chip)}>
         {d.label.split(' — ')[0]} · {(d.confidence * 100).toFixed(0)}%

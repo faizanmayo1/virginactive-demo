@@ -30,6 +30,8 @@ export function ClubCompliance() {
   const [query, setQuery] = useState('')
   const club = clubs.find((c) => c.id === selectedId) ?? heroClub
   const region = regions.find((r) => r.name === club.region)
+  const tierClubs = clubs.filter((c) => c.tier === club.tier)
+  const tierAvg = Math.round((tierClubs.reduce((s, c) => s + c.overall, 0) / tierClubs.length) * 10) / 10
   const isHero = club.id === heroClub.id
   const failedItems = auditZones.flatMap((z) => z.items.filter((i) => i.state === 'fail' || i.state === 'flag').map((i) => ({ ...i, zone: z.name })))
   const list = ordered.filter((c) => c.name.toLowerCase().includes(query.toLowerCase()))
@@ -160,6 +162,7 @@ export function ClubCompliance() {
                 <SectionHead title="Benchmark" hint="vs region & tier" />
                 <ul className="mt-3 space-y-2.5 text-[12.5px]">
                   <Bench label={`${club.region} region avg`} value={region?.compliance ?? 0} club={club.overall} />
+                  <Bench label={`${club.tier} tier avg`} value={tierAvg} club={club.overall} />
                   <Bench label="Portfolio avg" value={90.7} club={club.overall} />
                 </ul>
               </div>
